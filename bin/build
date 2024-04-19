@@ -1,0 +1,12 @@
+#!/bin/bash -eu
+
+readonly NODE_VERSION=21.7
+
+docker run --rm -it \
+  -v $(pwd):/usr/src/app \
+  -w /usr/src/app \
+  --entrypoint /bin/sh \
+  node:${NODE_VERSION} \
+    -c " npm install && \
+         npx rollup -c"
+
